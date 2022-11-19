@@ -1,0 +1,13 @@
+{
+  "criteria": {
+    "Power": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "wither_skeleton:wither_sword"
+      }
+    }
+  },
+  "rewards": {
+    "function": "wither_skeleton:give_wither_sword"
+  }
+}

@@ -1,0 +1,170 @@
+
+  
+  {
+    "function": "minecraft:copy_nbt", 复制NBT到物品的tag标签
+    "source": "block_entity" 来源为被破坏的方块，仅用于 block 类型战利品表
+            或
+              "this" 命令执行者；entity 类型战利品表的死亡者；进度奖励中获得进度的玩家；block 类型战利品表的打开或破坏容器的玩家
+            或
+              "killer" entity 类型战利品表的击杀者
+            或
+              "killer_player" entity 类型战利品表的击杀者，必须是玩家
+            或
+              {
+                "type": "context",
+                "target": "this" 或 "killer" 或 "direct_killer" 或 "player_killer" 和前面的写法等价
+              或
+                "type": "storage", 设置来源为命令存储空间(storage)
+                "source": "命令存储空间的命名空间ID"
+              },
+    "ops": [
+      {
+        "source": "字符串", 要被复制的NBT路径
+        "target": "字符串", 要复制到的NBT路径，从物品的tag标签开始
+        "op": "replace" 替换目标的所有存在的内容
+            或
+              "append" 追加到一个列表
+            或
+              "merge" 融合到一个复合标签
+      }
+    ]
+  }
+  
+  {
+    "function": "minecraft:set_name", 设置物品自定义名称，该函数可以对JSON文本中组件进行解析。
+    "name":"原始JSON文本",
+    "entity": 指定JSON文本里中@s表示的实体 "this" 命令执行者；entity 类型战利品表的死亡者；进度奖励中获得进度的玩家；block 类型战利品表的打开或破坏容器的玩家
+    或
+      "killer" entity 类型战利品表的击杀者
+    或
+      "killer_player" entity 类型战利品表的击杀者，必须是玩家
+  }
+  
+  {
+    "function": "minecraft:set_lore", 设置物品附加文本(lore)标签，该函数可以对JSON文本中组件进行解析。
+    "lore":[
+      "原始JSON文本1",
+      "原始JSON文本2"
+    ],
+    "entity": 指定JSON文本里中@s表示的实体 "this" 命令执行者；entity 类型战利品表的死亡者；进度奖励中获得进度的玩家；block 类型战利品表的打开或破坏容器的玩家
+    或
+      "killer" entity 类型战利品表的击杀者
+    或
+      "killer_player", entity 类型战利品表的击杀者，必须是玩家
+    "replace": true 或 false 如果为true，则替换物品当前的lore；如果为false，则在物品lore后追加内容。
+  }
+  
+  {
+    "function": "minecraft:set_nbt", 为物品添加NBT标签
+    "tag": "NBT对象" 添加NBT标签，和命令的使用方法类似。注意最外层括号需要书写花括号（{}）以及内部的引号需要使用转义符（\）标记。
+  }
+  
+  {
+    "function": "minecraft:set_stew_effect", 为迷之炖菜添加状态效果
+    "effects": [
+      {
+        "type":"状态效果命名空间ID"
+        "duration":值提供器 指定状态效果的持续时间
+      }
+    ]
+  }
+  
+  {
+    "function": "minecraft:enchant_randomly", 为物品附上一个随机的魔咒。魔咒的等级也是随机的。
+    "enchantments":[ 能够附上的魔咒列表。如果没有此标签，所有可以对该物品附上的魔咒都可能被附上。
+      "魔咒命名空间ID1",
+      "魔咒命名空间ID2"
+    ]
+  }
+  
+  {
+    "function": "minecraft:enchant_with_levels", 使用指定的附魔等级附魔物品
+    "treasure": true 或 false, 该物品是否能被附上宝藏魔咒
+    "levels": 值提供器 指定该附魔的等级，超过99会无效。
+  }
+  
+  {
+    "function": "minecraft:set_enchantments‌", 设置物品附魔
+    "enchantments": {
+      "魔咒命名空间ID": 值提供器, 该魔咒的等级
+    },
+    "add": true 或 false 追加魔咒还是覆盖原有魔咒
+  }
+  
+  {
+    "function": "minecraft:fill_player_head", 给玩家头颅添加指定物品标签
+    "entity": "this" 命令执行者；entity 类型战利品表的死亡者；进度奖励中获得进度的玩家；block 类型战利品表的打开或破坏容器的玩家
+            或
+              "killer" entity 类型战利品表的击杀者
+            或
+              "killer_player" entity 类型战利品表的击杀者，必须是玩家
+  }
+  
+  {
+    "function": "minecraft:set_attributes", 为物品加上属性修饰符
+    "modifiers": [属性修饰符列表
+      {
+        "name": "字符串", 修改器的名称
+        "attribute": "字符串", 此修改器修改的属性的名称
+        "operation": "addition" 或 "multiply_base" 或 "multiply_total", 修改数值的方法
+        "amount": 值提供器 要修改的数值
+        或 {
+          "min": 值提供器, 要修改的数值最小值
+          "min": 值提供器 要修改的数值最大值
+        },
+        "id": "字符串", 可选，修改器的UUID。如果没有指定，则生成新的UUID。不建议手动指定。
+        "slot": "mainhand" 或 "offhand" 或 "feet" 或 "legs" 或 "chest" 或 "head" 该属性生效的栏位
+            或
+              [ 随机选择列表中的一个栏位
+                "栏位1",
+                "栏位2",
+              ]
+      }
+    ]
+  }
+  
+  {
+    "function": "minecraft:set_banner_pattern‌", 设置旗帜样式
+    "patterns": [
+      {
+        "pattern": "base" 或 "border" 或 "bricks" 或 "circle" 或 "creeper" 或 "cross" 或 "curly_border" 或 "diagonal_left" 或 "diagonal_right" 或 "diagonal_up_left" 或 "diagonal_up_right" 或 "flower" 或 "globe" 或 "gradient" 或 "gradient_up" 或 "half_horizontal" 或 "half_horizontal_bottom" 或 "half_vertical" 或 "half_vertical_right" 或 "mojang" 或 "piglin" 或 "rhombus" 或 "skull" 或 "small_stripes" 或 "square_bottom_left" 或 "sqaure_bottom_right" 或 "square_top_left" 或 "square_top_right" 或 "straight_cross" 或 "stripe_bottom" 或 "stripe_center" 或 "stripe_downleft" 或 "stripe_downright" 或 "stripe_left" 或 "stripe_middle" 或 "stripe_right" 或 "stripe_top" 或 "triangle_bottom" 或 "triangle_top" 或 "triangles_bottom" 或 "triangles_top", 旗帜样式
+        "color": "white" 或 "orange" 或 "magenta" 或 "light_blue" 或 "yellow" 或 "lime" 或 "pink" 或 "gray" 或 "light_gray" 或 "cyan" 或 "purple" 或 "blue" 或 "brown" 或 "green" 或 "red" 或 "black 该样式的颜色
+      }
+    ],
+    "append": true 或 false 是否是追加到旗帜已有的样式上，若否则覆盖之
+  }
+  
+  {
+    "function": "minecraft:set_damage", 设置物品耐久
+    "damage": 值提供器, 物品已损伤的比例
+    "add": true 或 false 是否相对于当前耐久来设置
+  }
+  
+  {
+    "function": "minecraft:set_loot_table", 设置容器物品的战利品表
+    "type": 方块命名空间ID, 只允许是方块实体
+    "name": "战利品表命名空间ID",
+    "seed": 数值 战利品表种子，可选。默认为0，不指定种子。
+  }
+  
+  下列函数可以改变物品ID。
+  {
+    "function": "minecraft:furnace_smelt" 物品将变为在熔炉里烧炼后的状态。支持数据包添加的熔炉烧炼配方，但不支持高炉、烟熏炉或营火的烧炼配方。
+  }
+  
+  {
+    "function": "minecraft:exploration_map", 将普通的地图物品变为一个指引到某个结构的探险家地图
+    "destination": "结构类型", 理论上应该和/locate命令中的参数一样，实际上每个单词都需要首字母大写。
+    "decoration": "地图图标ID", 该结构在地图中显示的图标（大小写敏感）。如果设置为mansion或monument，地图物品的图标将会改变。
+    "zoom": 整数, 默认为2。地图缩放等级
+    "search_radius": 整数, 默认为50。搜寻以当前区块为中心的(search_radius+1)×(search_radius+1)的区块。
+    "skip_existing_chunks": true(默认值) 或 false 是否在搜寻时跳过已生成的区块
+  }
+  
+  {
+    "function": "minecraft:set_contents", 指定掉落物为容器时其内含物，仅对容器的方块战利品表有效
+    "type": 方块命名空间ID, 只允许是方块实体
+    "entries": [ 
+      战利品表项目列表 设置为dynamic类型的content，可使容器保留其内含物。但除潜影盒外的容器被破坏时总会将内含物掉出。
+    ]
+  }
