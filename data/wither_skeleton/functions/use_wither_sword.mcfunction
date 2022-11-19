@@ -1,0 +1,1 @@
+execute if entity @e run execute if entity @a[nbt={SelectedItem:{tag:{Tags:["wither_skeleton_killer"]}}}] run say 4
