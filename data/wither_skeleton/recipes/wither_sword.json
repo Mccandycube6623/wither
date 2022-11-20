@@ -1,20 +1,20 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "C",
-        "C",
-        "G"
+        " C ",
+        "CPC",
+        " C "
     ],
     "key": {
         "C": {
             "item":"minecraft:diamond"
         },
-        "G": {
-            "item":"minecraft:wither_rose"
+        "P": {
+            "item":"minecraft:wither_skeleton_skull"
         }
     },
     "result": {
         "item": "minecraft:knowledge_book",
-        "count": 1
+        "count": 2
     }
 }

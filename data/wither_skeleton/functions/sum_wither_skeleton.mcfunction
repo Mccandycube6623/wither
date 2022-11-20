@@ -1,0 +1,2 @@
+summon minecraft:wither_skeleton ^10 ^1 ^ {ArmorItems:[{},{},{},{id:"minecraft:wither_skeleton_skull",Count:1b}],ArmorDropChances:[0.0f,0.0f,0.0f,1f]}
+clear @p minecraft:diamond_sword{display:{Name:'[{"text":"wither_sword"}]'},Tags:["wither_skeleton_killer"],Enchantments:[{id:"minecraft:smite",lvl:2s},{id:"minecraft:unbreaking",lvl:1s}]} 1
