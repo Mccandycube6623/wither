@@ -1,1 +1,0 @@
-execute if entity @a[nbt={SelectedItem:{tag:{Tags:["wither_skeleton_killer"]}}}] run function wither_skeleton:sum_wither_skeleton

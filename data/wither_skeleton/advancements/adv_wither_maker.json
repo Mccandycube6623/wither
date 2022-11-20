@@ -3,11 +3,11 @@
     "Power": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "wither_skeleton:wither_sword"
+        "recipe": "wither_skeleton:wither_maker"
       }
     }
   },
   "rewards": {
-    "function": "wither_skeleton:give_wither_sword"
+    "function": "wither_skeleton:give_wither_maker"
   }
 }
